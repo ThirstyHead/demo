@@ -1,0 +1,27 @@
+.item {
+    padding: 1em;
+}
+
+.item-title {
+    font-size: 2em;
+}
+
+.item-rating {
+    margin-left: 1em;
+}
+
+.search-section {
+    padding: 1em;
+}
+
+.pagination-section {
+    padding: 1em;
+}
+
+.release-section {
+    padding-top: 4em;
+}
+
+.item-boxart {
+    height: 200px;
+}

@@ -1,0 +1,80 @@
+<section class="row center-block search-section">
+    <div class="col-md-10 input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+        <input type="search"
+               class="form-control"
+               placeholder="Search">
+
+    </div>
+</section>
+
+
+<section class="row center-block pagination-section">
+    <hr>
+        <div class="row">
+            <div class="col-md-3">
+                1-5 of 16 results
+            </div>
+
+            <div class="col-md-3 pull-right">
+                Sort By <select ng-model="items.orderBy">
+                          <option>name</option>
+                          <option>date</option>
+                        </select>
+            </div>
+
+
+        </div>
+
+
+    <hr>
+</section>
+
+
+<section class="center-block">
+<div class="row item" ng-repeat="item in items.list | orderBy: items.orderBy track by item._id">
+    <div class="col-md-2">
+        <img ng-src="{{item.image}}"
+             alt="{{item.title}}"
+             class="img-responsive center-block item-boxart">
+    </div>
+    <div class="col-md-4">
+        <h2>{{item.title}}
+        <span class="label label-default item-rating">{{item.rating}}</span>
+        </h2>
+
+        <button class="btn btn-default"
+                onclick="alert('Not Implemented')">Add to Watchlist</button>
+    </div>
+
+    <div class="col-md-4 release-section">
+        <div class="row">
+            <div class="col-md-6">
+                Release Date
+            </div>
+            <div class="col-md-6">
+                {{item.date | date:'longDate'}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                Run Time
+            </div>
+            <div class="col-md-6">
+                {{item.run_time / 60 / 60 | number:0}}hrs {{item.run_time / 60 % 60 | number:0}}mins
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--     <td>{{item.title}}</td>
+        <td>{{item.slug}}</td>
+        <td>{{item.date}}</td>
+        <td>{{item.rating}}</td>
+        <td>{{item.run_time}}</td>
+     -->
+</div>
+</section>

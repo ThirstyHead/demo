@@ -1,0 +1,98 @@
+# Example YAML to get you started quickly.
+# Be aware that YAML has indentation based scoping.
+# Code completion support is available so start typing for available options.
+swagger: '2.0'
+
+# This is your document metadata
+info:
+  version: "0.1.0"
+  title: MediaHub
+  description: All of your media in one place
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+# Definitions defines datatypes
+definitions:
+  Item:
+    properties:
+      id:
+        type: integer
+      image:
+        type: string
+      title:
+        type: string
+      slug:
+        type: string
+      date:
+        type: string
+      rating:
+        type: string
+      run_time:
+        type: integer
+
+# Parameters used in multiple paths
+parameters:
+  itemId:
+    name: itemId
+    in: path
+    description: ID of the `Item`
+    required: true
+    type: integer
+
+# Describe your paths here
+paths:
+  /items:
+    get:
+      description: Gets an array of `Item` objects.
+      responses:
+        200:
+          description: Successful response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Item'
+    post:
+      description: Saves a new `Item`
+      parameters:
+        - name: item
+          in: body
+          description: The `Item` to be added
+          required: true
+          schema:
+            $ref: '#/definitions/Item'
+      responses:
+        201:
+          description: Successful POST
+
+  /items/{itemId}:
+    parameters:
+      - $ref: '#/parameters/itemId'
+    get:
+      description: Gets an individual `Item` uniquely identified by `itemId`
+      responses:
+        200:
+          description: Successful response
+          schema:
+            $ref: '#/definitions/Item'
+
+    put:
+      description: Updates a `Item`
+      parameters:
+        - name: item
+          in: body
+          description: The `Item` to be updated
+          required: true
+          schema:
+            $ref: '#/definitions/Item'
+      responses:
+        204:
+          description: Successful update
+
+    delete:
+      description: Deletes a `Item`
+      responses:
+        204:
+          description: Successful delete
