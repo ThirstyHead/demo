@@ -20,13 +20,13 @@
 
 
 <section class="center-block">
-<div class="row item" ng-repeat="item in items.list track by item._id">
+<div class="row item" ng-repeat="item in items.list | orderBy: 'title' track by item._id">
     <div class="col-md-2">
         <img ng-src="{{item.image}}"
              alt="{{item.title}}"
-             class="img-responsive center-block">
+             class="img-responsive center-block item-boxart">
     </div>
-    <div class="col-md-2">
+    <div class="col-md-4">
         <h2>{{item.title}}
         <span class="label label-default item-rating">{{item.rating}}</span>
         </h2>
@@ -35,7 +35,7 @@
                 onclick="alert('Not Implemented')">Add to Watchlist</button>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-4 release-section">
         <div class="row">
             <div class="col-md-6">
                 Release Date
