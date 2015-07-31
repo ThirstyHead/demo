@@ -5,7 +5,7 @@
                            'ngResource',
                            'ui.bootstrap',
                            'app.home',
-                           'app.books'])
+                           'app.items'])
     .controller('AppController', AppController);
 
     AppController.$inject = ['$router'];
@@ -14,9 +14,9 @@
             {path: '/',
              as: 'home',
              components: {'main':'home'}},
-            {path: '/books',
-             as: 'books',
-             components: {'main':'books'}}
+            {path: '/items',
+             as: 'items',
+             components: {'main':'items'}}
         ]);
     }
 })();

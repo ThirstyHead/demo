@@ -6,7 +6,7 @@ var session = require('express-session');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var methodOverride = require('method-override'); 
+var methodOverride = require('method-override');
 var flash = require('connect-flash');
 var swagger = require('swagger-express-middleware');
 var expressListRoutes = require('express-list-routes');
@@ -14,7 +14,7 @@ var jsonServer = require('json-server');
 var YAML = require('yamljs');
 var lodash = require('lodash');
 
-// configuration for local user db  
+// configuration for local user db
 var passport = require('./passportConfig');
 
 // web server variables
@@ -22,7 +22,7 @@ var env = process.env.NODE_ENV || 'development';
 var hostname = process.env.HOSTNAME || 'localhost';
 var port = parseInt(process.env.PORT, 10) || 3000;
 var publicDir = __dirname + '/../../build';
-var bowerDir = __dirname + '/../../bower_components'; 
+var bowerDir = __dirname + '/../../bower_components';
 var swaggerFile = {};
 swaggerFile.yaml = 'mediahub.yaml';
 swaggerFile.json = YAML.load(swaggerFile.yaml);
@@ -34,10 +34,10 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
-app.use(session({ 
+app.use(session({
                   secret: 'keyboard cat',
                   saveUninitialized: true,
-                  resave: true 
+                  resave: true
                 }));
 app.use(flash());
 app.use(passport.initialize());
@@ -58,14 +58,14 @@ middleware.init(swaggerFile.yaml, function(err) {
         var mockSwagger = require('./mockswagger');
         mockSwagger.forEach(function(element, index, array) {
             mockDb.save(
-                new swagger.Resource('/books/' + element._id, element)
+                new swagger.Resource('/items/' + element._id, element)
             );
         });
         app.use(middleware.mock(mockDb));
     }
 });
 
-// json-server gives us full CRUD RESTful endpoints 
+// json-server gives us full CRUD RESTful endpoints
 // based on static JSON in mockdb.json
 var mockJsonRouter = jsonServer.router('mockdb.json');
 app.use('/mock', mockJsonRouter);
@@ -103,7 +103,7 @@ app.post('/login', function (req, res, next) {
 
         req.logIn(user, function(err){
             if(err){ return next(err); }
-            res.status(200).json(user);   
+            res.status(200).json(user);
         });
     })(req, res, next);
 });
