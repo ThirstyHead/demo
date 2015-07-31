@@ -1,0 +1,10 @@
+{
+  "generator-meaningfuljs": {
+    "githubName": "Scott Davis",
+    "githubEmail": "scott@thirstyhead.com",
+    "githubNameAndEmail": "Scott Davis <scott@thirstyhead.com>",
+    "appName": "disney",
+    "appDescription": "DisneyAnywhere.com interview app",
+    "appAuthor": "Scott Davis <scott@thirstyhead.com>"
+  }
+}
