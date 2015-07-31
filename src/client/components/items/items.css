@@ -1,0 +1,11 @@
+.item {
+    padding: 1em;
+}
+
+.item-title {
+    font-size: 2em;
+}
+
+.item-rating {
+    margin-left: 1em;
+}
