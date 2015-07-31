@@ -1,8 +1,25 @@
-<p><a ng-link="home">Home</a> / Items</p>
+<section class="row center-block search-section">
+    <div class="col-md-10">
+        <input type="search"
+               class="form-control">
+    </div>
+</section>
+
+
+<section class="row center-block pagination-section">
+    <hr>
+        <div class="row">
+            <div class="col-md-3">
+                1-5 of 16 results
+            </div>
+        </div>
+
+
+    <hr>
+</section>
+
 
 <section class="center-block">
-
-
 <div class="row item" ng-repeat="item in items.list track by item._id">
     <div class="col-md-2">
         <img ng-src="{{item.image}}"
@@ -48,5 +65,4 @@
         <td>{{item.run_time}}</td>
      -->
 </div>
-
 </section>
