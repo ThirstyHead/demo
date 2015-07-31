@@ -7,6 +7,8 @@ function ItemsController($modal, $window, Item) {
     my.title = 'Items';
     getList();
 
+    my.orderBy = 'date';
+
     my.edit = function(id) {
         Item.get({id:id}, function(res) {
             openDialog(res, 'edit');
