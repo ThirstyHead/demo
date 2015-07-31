@@ -6,7 +6,8 @@
   "license": "Apache 2.0",
   "scripts": {
     "init": "npm install",
-    "postinstall": "bower install --config.interactive=false"
+    "postinstall": "bower install --config.interactive=false",
+    "start": "gulp run"
   },
   "repository": {
     "type": "git",
